@@ -1,0 +1,73 @@
+﻿using FremontCricket.DTO;
+using Microsoft.Data.SqlClient;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FremontCricket.Data
+{
+    public class TeamDAL
+    {
+        public int AddTeam(Team team)
+        {
+            string connectionString = "Data Source=NarasimhaRao;initial catalog=FremontCricket; User ID=sa;Password=abc;TrustServerCertificate=True;";
+            string query = "INSERT INTO dbo.team_info (id,team_name) " +
+                           "VALUES (@Id,@TeamName)";
+
+            using (SqlConnection cn = new SqlConnection(connectionString))
+            using (SqlCommand cmd = new SqlCommand(query, cn))
+            {
+                cmd.Parameters.AddWithValue("@Id", Guid.NewGuid());
+                cmd.Parameters.AddWithValue("@TeamName", team.TeamName);
+
+                cn.Open();
+                int count = cmd.ExecuteNonQuery();
+                cn.Close();
+
+                return count;
+            }
+        }
+
+        public List<Team> GetAllTeams()
+        {
+            string connectionString = "Data Source=NarasimhaRao;initial catalog=FremontCricket; User ID=sa;Password=abc;TrustServerCertificate=True;";
+            string query = "EXEC spGetAllTeamsInformation";
+
+            using (SqlConnection cn = new SqlConnection(connectionString))
+            using (SqlCommand cmd = new SqlCommand(query, cn))
+            {
+                cn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                List<Team> lstTeams = new List<Team>();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        lstTeams.Add(
+                        new Team()
+                        {
+                            Id = reader.GetGuid(0),
+                            TeamName = reader.GetString(1),
+                            MatchId = reader.GetGuid(2),
+                            HostTeamId = reader.GetGuid(3),
+                            GuestTeamId = reader.GetGuid(4),
+                            MatchWonBy = reader.GetGuid(5),
+                            MatchLostBy = reader.GetGuid(6),
+                        });
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No rows found.");
+                }
+                reader.Close();
+                cn.Close();
+
+                return lstTeams;
+            }
+        }
+    }
+}
