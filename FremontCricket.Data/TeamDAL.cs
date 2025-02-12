@@ -51,11 +51,9 @@ namespace FremontCricket.Data
                         {
                             Id = reader.GetGuid(0),
                             TeamName = reader.GetString(1),
-                            MatchId = reader.GetGuid(2),
-                            HostTeamId = reader.GetGuid(3),
-                            GuestTeamId = reader.GetGuid(4),
-                            MatchWonBy = reader.GetGuid(5),
-                            MatchLostBy = reader.GetGuid(6),
+                            MatchesPlayed = reader.GetInt32(2),
+                            MatchesWon = reader.GetInt32(3),
+                            MatchesLost = reader.GetInt32(4)
                         });
                     }
                 }

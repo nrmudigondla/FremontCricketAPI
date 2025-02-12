@@ -15,5 +15,8 @@ namespace FremontCricket.DTO
         public Guid GuestTeamId { get; set; }
         public Guid MatchWonBy { get; set; }
         public Guid MatchLostBy { get; set; }
+        public int MatchesPlayed { get; set; }
+        public int MatchesWon { get; set; }
+        public int MatchesLost { get; set; }
     }
 }

@@ -5,8 +5,6 @@ VisualStudioVersion = 17.12.35506.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FremontCricket.API", "FremontCricket.API\FremontCricket.API.csproj", "{6B57447F-74D9-448C-ADAE-1586ADE758D1}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "FremontCricket.DB", "FremontCricket.DB\FremontCricket.DB.sqlproj", "{6B8B025E-5FC2-4D1E-823A-E90C109969C4}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FremontCricket.DTO", "FremontCricket.DTO\FremontCricket.DTO.csproj", "{8A1C3EA2-0D88-4D62-873A-892B01177906}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FremontCricket.Data", "FremontCricket.Data\FremontCricket.Data.csproj", "{EDE8AFF3-38E4-4A35-ABEA-7E0289DE13FF}"
@@ -21,12 +19,6 @@ Global
 		{6B57447F-74D9-448C-ADAE-1586ADE758D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B57447F-74D9-448C-ADAE-1586ADE758D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B57447F-74D9-448C-ADAE-1586ADE758D1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6B8B025E-5FC2-4D1E-823A-E90C109969C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6B8B025E-5FC2-4D1E-823A-E90C109969C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6B8B025E-5FC2-4D1E-823A-E90C109969C4}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{6B8B025E-5FC2-4D1E-823A-E90C109969C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6B8B025E-5FC2-4D1E-823A-E90C109969C4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6B8B025E-5FC2-4D1E-823A-E90C109969C4}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{8A1C3EA2-0D88-4D62-873A-892B01177906}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8A1C3EA2-0D88-4D62-873A-892B01177906}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A1C3EA2-0D88-4D62-873A-892B01177906}.Release|Any CPU.ActiveCfg = Release|Any CPU
