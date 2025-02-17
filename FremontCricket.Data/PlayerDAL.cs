@@ -10,9 +10,9 @@ namespace FremontCricket.Data
 {
     public class PlayerDAL
     {
+        string connectionString = "Data Source=NarasimhaRao;initial catalog=FremontCricket; User ID=sa;Password=abc;TrustServerCertificate=True;";
         public List<TeamPlayer> GetPlayersByTeam(Guid Id)
         {
-            string connectionString = "Data Source=NarasimhaRao;initial catalog=FremontCricket; User ID=sa;Password=abc;TrustServerCertificate=True;";
             string query = "EXEC spGetTeamPlayerInfo @TeamId";
 
             using (SqlConnection cn = new SqlConnection(connectionString))
@@ -50,5 +50,42 @@ namespace FremontCricket.Data
                 return teamPlayers;
             }
         }
+        public List<User> GetAllPlayers()
+        {
+            string query = "EXEC spGetAllPlayerInfo";
+
+            using (SqlConnection cn = new SqlConnection(connectionString))
+            using (SqlCommand cmd = new SqlCommand(query, cn))
+            {
+                cn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                List<User> users = new List<User>();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        users.Add(
+                        new User()
+                        {
+                            Number = reader.GetInt64(0),
+                            FirstName = reader.GetString(1),
+                            LastName = reader.GetString(2),
+                         
+                        });
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No rows found.");
+                }
+                reader.Close();
+                cn.Close();
+
+                return users;
+            }
+        }
+
+
     }
 }

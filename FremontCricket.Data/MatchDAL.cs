@@ -12,7 +12,7 @@ namespace FremontCricket.Data
     {
         public int AddMatch(Match match)
         {
-            string connectionString = "Data Source=NarasimhaRao;initial catalog=FremontCricket; User ID=sa;Password=abc;TrustServerCertificate=True;";
+            string connectionString = "Data Source=GEETHA\\SQLEXPRESS;Initial Catalog=FremontCricket;Integrated Security=True;TrustServerCertificate=True;"; ;
             string query = "INSERT INTO dbo.match_info (id,host_team,guest_team,match_won_by,match_lost_by,toss_won_by,match_tied) " +
                            "VALUES (@Id,@HostTeam,@GuestTeam,null,null,null,0)";
 
