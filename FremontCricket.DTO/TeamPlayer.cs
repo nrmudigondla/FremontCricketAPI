@@ -15,5 +15,6 @@ namespace FremontCricket.DTO
         public int RunsScored { get; set; } = 0;
         public int WicketsTaken { get; set; } = 0;
         public int Umpired { get; set; } = 0;
+        public Guid TeamId { get; set; }
     }
 }

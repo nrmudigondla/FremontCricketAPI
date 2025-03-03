@@ -9,6 +9,23 @@ namespace FremontCricket.API.Controllers
     [ApiController]
     public class MatchController : ControllerBase
     {
+        [HttpGet]
+        public IActionResult Get()
+        {
+            try
+            {
+                MatchDAL matchDAL = new MatchDAL();
+
+                var result = matchDAL.GetAllMatches();
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                "Error getting all matches");
+            }
+        }
         [HttpPost]
         public IActionResult Post([FromBody]Match match)
         {
