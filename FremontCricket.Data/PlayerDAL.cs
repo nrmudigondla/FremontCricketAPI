@@ -36,7 +36,8 @@ namespace FremontCricket.Data
                             MOM = reader.GetInt32(3),
                             RunsScored = reader.GetInt32(4),
                             Umpired = reader.GetInt32(5),
-                            WicketsTaken = reader.GetInt32(6)
+                            WicketsTaken = reader.GetInt32(6),
+                            TeamId = reader.GetGuid(7)
                         });
                     }
                 }
