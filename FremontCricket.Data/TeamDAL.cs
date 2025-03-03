@@ -12,7 +12,7 @@ namespace FremontCricket.Data
     {
         public int AddTeam(Team team)
         {
-            string connectionString = "Data Source=NarasimhaRao;initial catalog=FremontCricket; User ID=sa;Password=abc;TrustServerCertificate=True;";
+            string connectionString = "Data Source=GEETHA\\SQLEXPRESS;Initial Catalog=FremontCricket;Integrated Security=True;TrustServerCertificate=True;"; ;
             string query = "INSERT INTO dbo.team_info (id,team_name) " +
                            "VALUES (@Id,@TeamName)";
 
@@ -32,7 +32,7 @@ namespace FremontCricket.Data
 
         public List<Team> GetAllTeams()
         {
-            string connectionString = "Data Source=NarasimhaRao;initial catalog=FremontCricket; User ID=sa;Password=abc;TrustServerCertificate=True;";
+            string connectionString = "Data Source=GEETHA\\SQLEXPRESS;Initial Catalog=FremontCricket;Integrated Security=True;TrustServerCertificate=True;";
             string query = "EXEC spGetAllTeamsInformation";
 
             using (SqlConnection cn = new SqlConnection(connectionString))

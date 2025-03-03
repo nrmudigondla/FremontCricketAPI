@@ -25,5 +25,22 @@ namespace FremontCricket.API.Controllers
                 "Error getting player information");
             }
         }
+        [HttpGet("GetAllPlayers")]
+        public IActionResult GetAllPlayers()
+        {
+            try
+            {
+                PlayerDAL playerDAL = new PlayerDAL();
+
+                var result = playerDAL.GetAllPlayers();
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                "Error getting player information");
+            }
+        }
     }
 }

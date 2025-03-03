@@ -8,7 +8,7 @@ namespace FremontCricket.Data
     {
         public int AddUser(User user)
         {
-            string connectionString = "Data Source=NarasimhaRao;initial catalog=FremontCricket; User ID=sa;Password=abc;TrustServerCertificate=True;";
+            string connectionString = "Data Source=GEETHA\\SQLEXPRESS;Initial Catalog=FremontCricket;Integrated Security=True;TrustServerCertificate=True;"; ;
             string query = "INSERT INTO dbo.user_info (id,first_name, last_name, username, password, phone_number, email) " +
                            "VALUES (@Id,@FirstName, @Lastname, @Username, @Password, @PhoneNumber, @EmailAddress) ";
 
